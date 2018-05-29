@@ -2,8 +2,10 @@ package dice;
 
 import java.math.BigInteger;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import core.Utils;
@@ -76,5 +78,32 @@ public class Dice {
 		countMap.put(remainingSteps, count);
 		Utils.printKeyValue(remainingSteps, count);
 		return count;
+	}
+	
+	/**
+	 * Calculate the total count of combination using Dynamic Programming without recursive
+	 * @param remainingSteps
+	 * @return
+	 */
+	public static BigInteger combinationCountDPNoRecursive(int remainingSteps) {
+		List<BigInteger> countList = new ArrayList<BigInteger>();
+		countList.add(BigInteger.ONE);	// countList[0] = 1;
+		countList.add(BigInteger.ONE);  // countList[1] = 1;
+		
+		int curRemainingSteps = 2;
+		while(curRemainingSteps <= remainingSteps) {
+			BigInteger count = BigInteger.ZERO;
+			int maxDiceNumber = Math.min(curRemainingSteps, 6);
+			for(int i = 1 ; i <= maxDiceNumber ; ++i) {
+				count = count.add(countList.get(curRemainingSteps - i));
+			}
+			
+			countList.add(count);
+			Utils.printKeyValue(curRemainingSteps, count);
+			
+			++curRemainingSteps;
+		}
+		
+		return countList.get(remainingSteps);
 	}
 }

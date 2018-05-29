@@ -9,14 +9,18 @@ public class DiceMain {
 		
 		// diceCombinationPath
 		remainingSteps = 13;
-		Dice.combinationSequence(remainingSteps, null);
+//		Dice.combinationSequence(remainingSteps, null);
 		
 		// diceCombinationCount
 		remainingSteps = 30;	// needs few seconds to calculate 30
-		count = Dice.combinationCount(remainingSteps); System.out.println(count);
+//		count = Dice.combinationCount(remainingSteps); System.out.println(count);
 
 		// diceCombinationCount using Dynamic Programming
 		remainingSteps = 610;
-		count = Dice.combinationCountDP(remainingSteps, null); System.out.println(count);
+//		count = Dice.combinationCountDP(remainingSteps, null); System.out.println(count);
+		
+		// diceCombinationCount using Dynamic Programming with out recursive
+		remainingSteps = 610;
+//		count = Dice.combinationCountDPNoRecursive(remainingSteps); System.out.println(count);
 	}
 }
