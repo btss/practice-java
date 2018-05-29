@@ -35,6 +35,7 @@ A gamer can only achieve n'th step only by one of below conditions
 - already achieved n-4 step and then roll 4.
 - already achieved n-5 step and then roll 5.
 - already achieved n-6 step and then roll 6.
+
 So all possible way to achieve n'th step is
 ```
 f(n) = f(n-1) + f(n-2) + f(n-3) + f(n-4) + f(n-5) + f(n-6)
