@@ -21,6 +21,6 @@ public class DiceMain {
 		
 		// diceCombinationCount using Dynamic Programming with out recursive
 		remainingSteps = 610;
-//		count = Dice.combinationCountDPNoRecursive(remainingSteps); System.out.println(count);
+//		count = Dice.combinationCountDPNoRecursive(remainingSteps, null); System.out.println(count);
 	}
 }

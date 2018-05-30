@@ -57,7 +57,7 @@ public class Dice {
 	 * @param countMap
 	 * @return
 	 */
-	public static BigInteger combinationCountDP(int remainingSteps,  Map<Integer, BigInteger> countMap) {
+	public static BigInteger combinationCountDP(int remainingSteps, Map<Integer, BigInteger> countMap) {
 		if(countMap == null) {
 			countMap = new HashMap<Integer, BigInteger>();
 		}
@@ -81,14 +81,47 @@ public class Dice {
 	}
 	
 	/**
-	 * Calculate the total count of combination using Dynamic Programming without recursive
+	 * Calculate the total count of combination using Dynamic Programming without recursive. Using Map<Integer, BigInteger>
+	 * @param remainingSteps
+	 * @param countMap
+	 * @return
+	 */
+	public static BigInteger combinationCountDPNoRecursive(int remainingSteps, Map<Integer, BigInteger> countMap) {
+		if(countMap == null) {
+			countMap = new HashMap<Integer, BigInteger>();
+		}
+		
+		countMap.put(0, BigInteger.ONE);
+		countMap.put(1, BigInteger.ONE);
+		Utils.printKeyValue(1, BigInteger.ONE);
+		
+		int curRemainingSteps = 2;
+		while(curRemainingSteps <= remainingSteps) {
+			BigInteger count = BigInteger.ZERO;
+			int maxDiceNumber = Math.min(curRemainingSteps, 6);
+			for(int i = 1 ; i <= maxDiceNumber ; ++i) {
+				count = count.add(countMap.get(curRemainingSteps - i));
+			}
+			
+			countMap.put(curRemainingSteps, count);
+			Utils.printKeyValue(curRemainingSteps, count);
+			
+			++curRemainingSteps;
+		}
+		
+		return countMap.get(remainingSteps);
+	}
+	
+	/**
+	 * Calculate the total count of combination using Dynamic Programming without recursive. Using List<BigInteger>.
 	 * @param remainingSteps
 	 * @return
 	 */
-	public static BigInteger combinationCountDPNoRecursive(int remainingSteps) {
+	public static BigInteger combinationCountDPNoRecursive_ListVersion(int remainingSteps) {
 		List<BigInteger> countList = new ArrayList<BigInteger>();
 		countList.add(BigInteger.ONE);	// countList[0] = 1;
 		countList.add(BigInteger.ONE);  // countList[1] = 1;
+		Utils.printKeyValue(1, BigInteger.ONE);
 		
 		int curRemainingSteps = 2;
 		while(curRemainingSteps <= remainingSteps) {
