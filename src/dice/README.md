@@ -1,10 +1,7 @@
-# practice_java
-Practice by Java.
+# dice package
+Dice related problems.
 
-## dice package
-Dice problems.
-
-### Dice: combinaton sequence to achieve N'th step
+## Dice: combinaton sequence to achieve N'th step
 
 ```java
 // code
@@ -35,7 +32,7 @@ Assume now remains N steps to finish, after rolling the dice, there will be poss
 
 Repeats above process until remains 0 step so that can enumerate all combination sequences.
 
-### Dice: Remaining steps
+## Dice: Remaining steps
 Imagine you are playing a board game. You roll a 6-faced dice and move forward the same number of spaces that you rolled. If the finishing point is “n” spaces away from the starting point, please implement a program that calculates how many possible ways are there to arrive exactly at the finishing point.
 
 ```java
@@ -72,7 +69,3 @@ So all possible way to achieve n'th step is
 ```
 f(N) = f(N-1) + f(N-2) + f(N-3) + f(N-4) + f(N-5) + f(N-6)
 ```
-
-
-## core package
-Some utilities.
