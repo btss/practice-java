@@ -1,3 +1,5 @@
+[dice](src/dice/README.md)
+
 # practice_java
 Practice by Java.
 
